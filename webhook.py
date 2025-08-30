@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/callback")
 def callback():
     code = request.args.get("code")
-    user_id = request.args.get("state")  # bisa dikirim via Telegram
+    user_id = request.args.get("state")  # bisa dikirim via Telegram sebagai parameter
     token_data = exchange_code_for_token(code)
     save_user_token(user_id, token_data["access_token"], token_data["refresh_token"])
     return "Strava berhasil terhubung!"
