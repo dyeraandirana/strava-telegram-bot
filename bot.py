@@ -10,7 +10,9 @@ STRAVA_CLIENT_ID = os.getenv("STRAVA_CLIENT_ID")
 REDIRECT_URI = os.getenv("STRAVA_REDIRECT_URI")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Halo Dyera! Bot ini akan bantu kamu terhubung ke Strava. Ketik /connect untuk mulai.")
+    first_name = update.effective_user.first_name
+    await update.message.reply_text(f"Halo {first_name}! 👋 Bot ini akan bantu kamu terhubung ke Strava. Yuk analisis hasil lari kamu! Ketik /connect untuk mulai.")
+
 
 async def connect(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
